@@ -17,9 +17,6 @@
     "@vue/cli-service": "^3.0.0-alpha.5",
     "vue-template-compiler": "^2.5.13"
   },
-  "vue": {
-    "lintOnSave": true
-  },
   "babel": {
     "presets": [
       "@vue/app"

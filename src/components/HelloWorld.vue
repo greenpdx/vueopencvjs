@@ -16,7 +16,22 @@
 
 <script>
 // import './cv'
-import add from '../tst.wasm'
+//import mkAdd from '../tst.wasm'
+import wasmAdd from './add.js'
+//const wasmAdd = mkAdd()
+/*
+wasmAdd.then(instance => {
+  var wasmAdd = instance.instance.exports
+  // eslint-disable-next-line no-unused-vars
+  let add = wasmAdd.add_one
+  // eslint-disable-next-line no-console
+  console.log('OUT', add(41))
+})
+*/
+// eslint-disable-next-line no-console
+console.log('O', wasmAdd)
+
+// const wasmAdd =
 
 export default {
   name: 'HelloWorld',
@@ -28,19 +43,45 @@ export default {
       video: null,
       canvas: null,
       photo: null,
-      stream: null
+      stream: null,
+      wasmAdd: null
     }
   },
   created () {
-    let t = add(41)
     // eslint-disable-next-line no-console
-    console.log('CREATE', t)
-    fetch('./tst.wasm')
-      .then(resp => resp.arrayBuffer())
-      .then(bytes => WebAssembly.instantiate(bytes, {}))
+    console.log('CR', wasmAdd)
+
+    this.wasmAdd = wasmAdd
+/*    wasmAdd.then(instance => {
+      this.wasmAdd = instance.instance.exports
+      // eslint-disable-next-line no-unused-vars
+      let add = this.wasmAdd.add_one
+      // eslint-disable-next-line no-console
+      console.log('CREATE', instance, add(41), this.wasmAdd)
+
+    })
+*/
+/*
+    fetch('tst.wasm')
+      .then(response => {
+        // eslint-disable-next-line no-console
+        console.log('C0', response)
+        return response.arrayBuffer()
+      })
+      .then(bytes => {
+        // eslint-disable-next-line no-console
+        console.log('C1', String.fromCharCode.apply(null, new Uint8Array(bytes)))
+        return WebAssembly.instantiate(bytes, {})
+      })
       .then(rslt => {
+        // eslint-disable-next-line no-console
+        console.log('C2', rslt)
         alert(rslt.instance.exports.add_one(41))
       })
+      .catch((err) => {
+        // eslint-disable-next-line no-console
+        console.log('ERR', err)
+      }) */
   },
   beforeMount () {
     // eslint-disable-next-line no-console
@@ -50,6 +91,12 @@ export default {
     this.video = this.$refs.video
     this.canvas = this.$refs.canvas
     this.photo = this.$refs.photo
+
+    // eslint-disable-next-line no-console
+    // console.log('MNT', wasmAdd.add_one(41))
+
+    // eslint-disable-next-line no-console
+    console.log('MNT', this.add(41))
 
     let constraints = {audio: true, video: true}
     navigator.mediaDevices.getUserMedia(constraints)
@@ -72,6 +119,10 @@ export default {
       })
   },
   methods: {
+    // eslint-disable-next-line no-unused-vars
+    add (num) {
+      return wasmAdd.add_one(num)
+    },
     // eslint-disable-next-line no-unused-vars
     play (evt) {
       // eslint-disable-next-line no-console
