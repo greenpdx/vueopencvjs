@@ -18,3 +18,6 @@ yarn-error.log*
 *.ntvs*
 *.njsproj
 *.sln
+
+# do not use
+package-lock.json
