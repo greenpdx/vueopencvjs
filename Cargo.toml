@@ -1,7 +1,0 @@
-[package]
-name = "vueopencvjs"
-version = "0.1.0"
-authors = ["ubuntu"]
-
-[dependencies]
-stdweb = "0.3.0"

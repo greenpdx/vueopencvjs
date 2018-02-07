@@ -21,11 +21,3 @@ yarn-error.log*
 
 # do not use
 package-lock.json
-
-/target
-**/*.rs.bk
-Cargo.lock
-
-/target
-**/*.rs.bk
-Cargo.lock
