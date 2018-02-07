@@ -9,7 +9,17 @@ module.exports = {
      .rule('wasm')
        .test(/.wasm$/)
        .use('wasm-loader')
-       .loader('wasm-loader')
+       .loader('wasm-loader'),
+//  },
+//  chainWebpack: webpackConfig => {
+    webpackConfig.module
+     .rule('rust')
+       .test(/.rs$/)
+       .use('rust-wasm-loader')
+       .loader('rust-wasm-loader')
+       .options({
+           path: 'build/'
+       })
   },
   configureWebpack: config => {
     // mutate config directly, or return new config
@@ -19,8 +29,8 @@ module.exports = {
   configureWebpack: {
     // ...
   },
-  vue: {
-    "lintOnSave": true
-  },
+//  vue: {
+//    "lintOnSave": true
+//  },
 
 }

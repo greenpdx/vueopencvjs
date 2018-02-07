@@ -18,6 +18,8 @@
 import cv from  'opencv.js'
 //import mkAdd from '../tst.wasm'
 import wasmAdd from './add.es6'
+
+const wasm = require('./main.rs')
 //const wasmAdd = mkAdd()
 /*
 wasmAdd.then(instance => {
@@ -123,7 +125,7 @@ export default {
       // cv.adaptiveThreshold(this.dst1, this.dst, 100, cv.ADAPTIVE_THRESH_GAUSSIAN_C, cv.THRESH_BINARY, 3, 2)
       // cv.Canny(this.dst2, this.dst, 60, 100, 3, false)
       cv.findContours(this.dst1, contours, hierarchy, cv.RETR_CCOMP, cv.CHAIN_APPROX_SIMPLE)
-      console.log(contours.size(), hierarchy)
+      // console.log(contours.size(), hierarchy)
 
 
 
