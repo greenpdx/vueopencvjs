@@ -9,14 +9,15 @@
   },
   "dependencies": {
     "opencv.js": "^1.2.1",
-    "vue": "^2.5.13",
-    "wasm-loader": "^1.1.0"
+    "vue": "^2.5.13"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.0.0-alpha.5",
     "@vue/cli-plugin-eslint": "^3.0.0-alpha.5",
     "@vue/cli-service": "^3.0.0-alpha.5",
-    "vue-template-compiler": "^2.5.13"
+    "rust-wasm-loader": "^0.1.2",
+    "vue-template-compiler": "^2.5.13",
+    "wasm-loader": "^1.1.0"
   },
   "babel": {
     "presets": [
